@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Phase - 4</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	jQuery(document).ready(function($) {
+		$(".clickable-row").click(function() {
+			window.location = $(this).data("href");
+		});
+	});
+</script>
+</head>
+<body>
+<div style="margin:30% auto; text-align:center">
+<font size="5">멸종 위기종</font>
+
+<br><br>
+<form action="./search.jsp">
+<button type="submit">동물 보기</button>
+</form>
+<br>
+
+<form action="./get_info.html">
+<button type="submit">동물 검색</button>
+</form>
+<br>
+
+<form action="./statistics.jsp">
+<button type="submit">동물 통계</button>
+</form>
+</div>
+
+</body>
+</html>
