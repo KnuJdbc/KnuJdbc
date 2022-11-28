@@ -30,7 +30,30 @@ public class joinMember {
 		
 	}
 	
-
+public int checkID(String ID) {
+		
+		String sql= "SELECT id "
+				+ "FROM ACCOUNT "
+				+ "WHERE EXISTS "
+				+ "(select * "
+				+ "from ACCOUNT "
+				+ "where id = '"+ID+"')";
+		
+		try {
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			if  (rs.next()) {
+				return -1;
+			}
+			
+		}catch (SQLException ex2) {
+			ex2.printStackTrace();
+		}
+		
+			
+			return 0;
+		}
+			
 	public int login(String ID, String pw) {
 		
 		String sql= "SELECT id, pw "

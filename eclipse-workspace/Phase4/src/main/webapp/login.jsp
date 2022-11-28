@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*"%>
-    <jsp:useBean id="m" class="mpackage.Member" scope="request"/>
+     <jsp:useBean id="m" class="mpackage.Member" scope="request"/>
 <jsp:useBean id="joinMember" class="mpackage.joinMember" scope="request"/>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@ String pw=request.getParameter("pw");
 int check = joinMember.login(ID, pw);
 
 if(check == -1 ){ %>
-등록 되어있지 않은 회원 입니다. <br />
+<p> 등록 되어있지 않은 회원 입니다. </p>
 <button onclick="newPage()">회원 가입 </button>
 
   <script>
@@ -27,10 +27,10 @@ if(check == -1 ){ %>
     	  window.location.href = 'join.jsp'
 	
 
-    }  
+    }  </script>
 		
 <% 	
-}
+return; } 
 	%>
 
 

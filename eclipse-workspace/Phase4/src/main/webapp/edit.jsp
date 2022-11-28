@@ -14,22 +14,22 @@
 	
 String ID =request.getParameter("ID");
 String pw=request.getParameter("pw");
-
 	%>	 
 <form action="edit_ok.jsp">	
 <input type=hidden name="ID" value="<%=ID%>">
-<input type=hidden name="pw" value="<%=pw%>">
-<table> 
+
+<table>
+<tr>	
+		<th> PW: </th>
+		<th> <input type="password" id="pw" name="pw"
+			size="20" placeholder=""></th> </tr>  
 <tr>
 		
-		<th> Phone_Number : </th>
+		<th> Phone Number : </th>
 		<th><input type="text" id="Phone_Number" name="Phone_Number"
 			size="20" placeholder=""></th> </tr>
 			
-		<tr>	
-		<th> PW: </th>
-		<th> <input type="password" id="pw" name="pw"
-			size="20" placeholder=""></th> </tr> 
+		
 		<tr>
 		<th> Name :</th> 
 		<th> <input type="text" id="Name"  name="Name"
@@ -43,8 +43,8 @@ String pw=request.getParameter("pw");
 			</tr>
 		<tr>	
 		<th>Sex : </th>
-		<th> <input type="checkbox" name="SEX" value="M" />M
-<input type="checkbox" name="SEX" value="F" />F </th> </tr>
+		<th> <input type="checkbox" name="Sex" value="M" />M
+<input type="checkbox" name="Sex" value="F" />F </th> </tr>
 				<tr>	
 		
 	<th>	Account Number : </th>

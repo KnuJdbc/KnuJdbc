@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <jsp:useBean id="r" class="w mpackage.Memb" scope="request"/>
-<jsp:useBean id="r joinMemb" class="w mpackage.joinMemb" scope="request"/>
+     <jsp:useBean id="m" class="mpackage.Member" scope="request"/>
+<jsp:useBean id="joinMember" class="mpackage.joinMember" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +30,7 @@
        joinMember.edit(m);
 
   %>
-  회원 가입 완료.
+  회원 정보 수정 완료.
   <button onclick="newPage()">메인 페이지로 </button>
 
   <script>

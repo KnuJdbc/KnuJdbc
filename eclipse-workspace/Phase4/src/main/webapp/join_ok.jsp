@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <jsp:useBean id="r" class="w mpackage.Memb" scope="request"/>
-<jsp:useBean id="r joinMemb" class="w mpackage.joinMemb" scope="request"/>
+     <jsp:useBean id="m" class="mpackage.Member" scope="request"/>
+<jsp:useBean id="joinMember" class="mpackage.joinMember" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,27 @@
 		String pw= request.getParameter("pw");
 		String Sex= request.getParameter("Sex");
 		String Phone_Number= request.getParameter("Phone_Number");
-		
+	
+		 int check = joinMember.checkID(ID);
+
+		 if(check == -1){ %>
+		 <p> 중복된 ID 입니다. </p>
+		 <button onclick="newPage()">회원 가입 </button>
+
+		   <script>
+		     function newPage() {
+		     	  window.location.href = 'join.jsp'
+		 	
+
+		     }  </script>
+		 		
+		 <% 	
+		 return; } 
+		 	%>
+		 	
+		 	
+		 	<% 
+		 	
      m.setId(ID);
   	m.setAccountNumber(Account_Number);
   	m.setAddress(Address);
@@ -31,7 +51,16 @@
        joinMember.join(m);
 
   %>
+회원 가입 완료.
+  <button onclick="newPage()">메인 페이지로 </button>
 
+  <script>
+    function newPage() {
+    	  window.location.href = 'main.jsp'
+	
+
+    }  
+  </script>
 
 </body>
 </html>
