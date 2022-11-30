@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건에 따른 동물 검색</title>
+</head>
+<body>
+<div style="text-align:center">
+<form action="./MainPage.jsp">
+<button type="submit">메인으로</button>
+</form>
+<br>
+<form action="./search.jsp">
+<button type="submit">모든 동물</button>
+</form>
+<br>
+<form action="./statistics.jsp">
+<button type="submit">동물 통계</button>
+</form>
+<br>
+</div>
+<fieldset>
+<legend> | 궁금하신 조건을 입력해주세요. |</legend>
+<form action="./search_animal.jsp" method="get">
+학명 : 
+<input type="text" name="SN" value="Rhynchocyon udzungwensis">
+<button type="submit" name="num" value=1>입력 완료</button>
+</form>
+<hr>
+
+<form action="./search_animal.jsp" method="get">
+지역 : 
+<select name="CONTINENT">
+	<option value="Global">Global</option>
+	<option value="Asia">Asia</option>
+	<option value="Africa">Africa</option>
+	<option value="Arctic">Arctic</option>
+	<option value="Antarctic">Antarctic</option>
+	<option value="Australia">Australia</option>
+	<option value="America">America</option>
+	<option value="South America">South America</option>
+	<option value="North America">North America</option>
+	<option value="Europe">Europe</option>
+	<option value="Mediterranean">Mediterranean</option>
+</select>
+<button type="submit" name="num" value=2>입력 완료</button>
+</form>
+<hr>
+
+<form action="./search_animal.jsp" method="get">
+사용처 : 
+<select name="USE">
+	<option value="Food - human">Food - human</option>
+	<option value="Food - animal">Food - animal</option>
+	<option value="Sport hunting/specimen collecting">Sport hunting/specimen collecting</option>
+	<option value="Medicine - human / veterinary">Medicine - human / veterinary</option>
+	<option value="Pets/display animals">Pets/display animals</option>
+	<option value="Wearing apparel, accessories">Wearing apparel, accessories</option>
+	<option value="horticulture">horticulture</option>
+	<option value="Handicrafts, jewellery, etc.">Handicrafts, jewellery, etc.</option>
+	<option value="Research">Research</option>
+	<option value="Other household goods">Other household goods</option>
+	<option value="Pets/display animals, horticulture">Pets/display animals, horticulture</option>
+	<option value="Establishing ex-situ production *">Establishing ex-situ production *</option>
+</select>
+<button type="submit" name="num" value=3>입력 완료</button>
+</form>
+<hr>
+
+<form action="./search_animal.jsp" method="get">
+시작 연도 : 
+<input type="text" name="S_YEAR" value="2015-01-01">
+/ 끝 연도 :
+<input type="text" name="E_YEAR" value="2017-12-31">
+<button type="submit" name="num" value=4>입력 완료</button>
+</form>
+
+</fieldset>
+
+</body>
+</html>
