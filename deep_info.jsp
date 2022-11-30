@@ -22,17 +22,34 @@ PreparedStatement pstmt;
 ResultSet rs;
 
 String animalName = request.getParameter("name");
-
-String sql = "SELECT DISTINCT A.Animal_ID AS ID, A.Name AS 이름, A.SN_ID AS 학명, A.Length AS 길이, " +
-			 "A.Weight AS 무게, A.IUCN_ID AS IUCN위기레벨, I.IUCN_Status AS IUCN위기레벨등급 " +
-			 "FROM ANIMAL A, IUCN_STATUS I, TAXONOMY T " +
-			 "WHERE A.Name = ? AND A.IUCN_ID = I.IUCN_Status_ID";
+// 여기부터
+String sql = "SELECT I.img " +
+			 "FROM ANIMAL A, ANI_IMG I " +
+			 "WHERE A.Name = ? AND A.Animal_ID = I.A_ID";
 
 try {
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	conn = DriverManager.getConnection(url,user,pass);
 	pstmt = conn.prepareStatement(sql);
 	
+	pstmt.setString(1, animalName);
+	rs = pstmt.executeQuery();
+
+	while (rs.next()) {
+		out.println("<br>");
+		out.println("<div style=\"text-align:center\">");
+		out.println("<img src=\"" + rs.getString(1) +"\" width=300 height=300 style=\"text-align:center\"></img>");
+		out.println("</div>");
+		out.println("<br>");
+	}
+	
+	
+	sql = "SELECT DISTINCT A.Animal_ID AS ID, A.Name AS 이름, A.SN_ID AS 학명, A.Length AS 길이, " +
+			 "A.Weight AS 무게, A.IUCN_ID AS IUCN위기레벨, I.IUCN_Status AS IUCN위기레벨등급 " +
+			 "FROM ANIMAL A, IUCN_STATUS I, TAXONOMY T " +
+			 "WHERE A.Name = ? AND A.IUCN_ID = I.IUCN_Status_ID";
+	// 아마 여기까지?
+	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, animalName);
 	rs = pstmt.executeQuery();
 	ResultSetMetaData rsmd = rs.getMetaData();
