@@ -1,11 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*" %>
+<jsp:useBean id="Like" class="mpackage.Like" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>선택한 동물의 자세한 정보</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(function() {
+	$("#btn1").click( function() {
+		if ($("#heart1").text() == '♥') {
+			$("#heart1").text('♡');
+		}
+		else {
+			$("#heart1").text('♥');
+		}
+	});
+});
+</script>
+
+<style>
+.heart {
+	color: red;
+}
+.btn {
+	border: none;
+	background-color: inherit;
+	font-size: 2em;
+}
+</style>
+
 </head>
 <body>
 
@@ -42,7 +68,7 @@ try {
 		out.println("</div>");
 		out.println("<br>");
 	}
-	
+
 	
 	sql = "SELECT DISTINCT A.Animal_ID AS ID, A.Name AS 이름, A.SN_ID AS 학명, A.Length AS 길이, " +
 			 "A.Weight AS 무게, A.IUCN_ID AS IUCN위기레벨, I.IUCN_Status AS IUCN위기레벨등급 " +
@@ -54,15 +80,35 @@ try {
 	rs = pstmt.executeQuery();
 	ResultSetMetaData rsmd = rs.getMetaData();
 	int cnt = rsmd.getColumnCount();
-	
-	out.println("<p style=\"text-align:center\">기본 정보</p>");
-	out.println("<table border=\"1\" style=\"margin-left: auto; margin-right: auto;\">");
-	
-	for(int i =1;i<=cnt;i++) {
-		out.println("<th>"+rsmd.getColumnName(i)+"</th>");
-	}
 
 	while (rs.next()) {
+		%> 
+		
+		<form action="like_process.jsp">
+		<%
+		int k = Like.isExist(rs.getInt(1), "second");
+
+		if (k == 1) {
+		%><input type=hidden name="A_ID" value="<%=rs.getInt(1)%>">
+		<input type=hidden name="Name" value="<%=rs.getString(2)%>">
+		<button id="btn1" class="btn" type="submit"><span id="heart1" class="heart">♥</span></button><%	
+		}
+		else {
+		%><input type=hidden name="A_ID" value="<%=rs.getInt(1)%>">
+		<input type=hidden name="Name" value="<%=rs.getString(2)%>">
+		<button id="btn1" class="btn" type="submit"><span id="heart1" class="heart">♡</span></button><%
+		}
+		%>
+		</form>
+		
+		<%
+		out.println("<p style=\"text-align:center\">기본 정보</p>");
+		out.println("<table border=\"1\" style=\"margin-left: auto; margin-right: auto;\">");
+		
+		for(int i =1;i<=cnt;i++) {
+			out.println("<th>"+rsmd.getColumnName(i)+"</th>");
+		}
+		
 		out.println("<tr>");
 		out.println("<td>"+rs.getInt(1)+"</td>");
 		out.println("<td>"+rs.getString(2)+"</td>");
@@ -285,8 +331,8 @@ try {
 	pstmt.close();
 	conn.close();
 } catch (SQLException ex2) {
-	System.err.println("sql error = " + ex2.getMessage());
-	System.exit(1);
+	//System.err.println("sql error = " + ex2.getMessage());
+	//System.exit(1);
 }
 %>
 <div style="text-align:center">
