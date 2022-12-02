@@ -28,12 +28,14 @@ window.location = $(this).data("href");
 </script>
 </head>
 <body>
+
+
 <section class="ftco-section">
 		
 		<div class="container">
 			<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
 		    <div class="container">
-		    	<a class="navbar-brand" href="index.html">Digital</a>
+		    	<a class="navbar-brand" href="index.html">ALL Endangerd Animal</a>
 		    	<div class="social-media order-lg-last">
 		    		<p class="mb-0 d-flex">
 		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
@@ -49,8 +51,8 @@ window.location = $(this).data("href");
 		        <ul class="navbar-nav ml-auto mr-md-3">
 		        	<li class="nav-item active"><a href="./after_login.jsp" class="nav-link">Home</a></li>
 		        <!-- <li class="nav-item"><a href="#" class="nav-link">All ANLIMALS</a></li> -->	
-		        	<li class="nav-item"><a href="./search_img.jsp" class="nav-link">IMAGES</a></li>
-		        	<li class="nav-item"><a href="./statistics.jsp" class="nav-link">STATISTICS</a></li>
+		        	<li class="nav-item"><a href="./search_img.jsp" class="nav-link">Images</a></li>
+		        	<li class="nav-item"><a href="./statistics.jsp" class="nav-link">Statistics</a></li>
 		          <li class="nav-item"><a href="./get_info.html" class="nav-link">Search</a></li>
 		        </ul>
 		      </div>
@@ -93,7 +95,7 @@ out.println(" <section class=\"ftco-section\">"
 +		"<div class=\"container\">"
 +    " <div class=\"row justify-content-center\"> "
 +	"<div class=\"col-md-6 text-center mb-5\">"
-+	"	<h2 class=\"heading-section\">모든 동물</h2>"
++	"	<h2 class=\"heading-section\">  </h2>"
 +	"</div>"
 +"</div>"
 
