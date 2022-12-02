@@ -122,8 +122,8 @@
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-                    <h1>
-                   Endangered animals
+                 <h1>
+                   Endangerd Animal
                     </h1>
                     <p>
 						More than 41,000 speciesare threatened with extinction
@@ -146,12 +146,14 @@ That is still 28% of all assessed species.
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
+                     <h1>
+                   Projects
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+						We work to ensure a sustainable future for all wildlife, </br>
+						habitats and communities.
                     </p>
+                
                     <div class="btn-box">
                       <a href="" class="btn1">
                         Order Now

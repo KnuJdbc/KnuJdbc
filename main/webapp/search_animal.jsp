@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page language="java" import="java.text.*,java.sql.*" %>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,13 +53,19 @@ String portNum = "1521";
 String user = "university";
 String pass = "comp322";
 String url = "jdbc:oracle:thin:@"+serverIP+":"+portNum+":"+strSID;
-
+String SN = request.getParameter("SN");
+String CNT = request.getParameter("CONTINENT");
+String S_YEAR = request.getParameter("S_YEAR");
+String E_YEAR = request.getParameter("E_YEAR");
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
+String USE = request.getParameter("USE");
+
+
 
 String temp = request.getParameter("num");
-int num = Integer.parseInt(temp);
+ int num = Integer.parseInt(temp);
 
 try {
 	Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -68,7 +82,7 @@ try {
 			  "                from TAXONOMY " +
 			  "                where Scientific_Name= ?)";
 		
-		String SN = request.getParameter("SN");
+	//	String SN = request.getParameter("SN");
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, SN);
 		rs = pstmt.executeQuery();
@@ -97,7 +111,7 @@ try {
 				"                            where a_id = animal_id " +
 				"                            and a_continent= ?)";
 			
-			String CNT = request.getParameter("CONTINENT");
+		//	String CNT = request.getParameter("CONTINENT");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, CNT);
 			rs = pstmt.executeQuery();
@@ -123,7 +137,7 @@ try {
 				"FROM ANI_USE U, ANIMAL A " +
 				"WHERE U.A_Use = ? and U.A_ID = A.Animal_ID";
 			
-			String USE = request.getParameter("USE");
+		//	String USE = request.getParameter("USE");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, USE);
 			rs = pstmt.executeQuery();
@@ -152,8 +166,8 @@ try {
 				"                where record between ? and ? " +
 				"                ) AND R.URL_ID = B.URL_ID AND B.A_ID = A.Animal_ID";
 			
-			String S_YEAR = request.getParameter("S_YEAR");
-			String E_YEAR = request.getParameter("E_YEAR");
+		//	String S_YEAR = request.getParameter("S_YEAR");
+		//	String E_YEAR = request.getParameter("E_YEAR");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, S_YEAR);
 			pstmt.setString(2, E_YEAR);
